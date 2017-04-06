@@ -18,4 +18,8 @@ module.exports = function(server) {
 	const roomService = require('../api/room/roomService')
 	roomService.register(router, '/rooms')
 
+	// Teacher Room
+	const teacherRoomService = require('../api/teacher_room/teacherRoomService')
+	teacherRoomService.register(router, '/teacherrooms')
+
 }
