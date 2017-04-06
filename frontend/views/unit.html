@@ -1,0 +1,20 @@
+<div ng-controller="unitCtrl">
+	<h3>page unit</h3>
+	<input type="text" ng-model="unit.name" placeholder="name">
+	<button ng-click="addUnit(unit)">adicionar</button>
+	<hr>
+	<table>
+		<thead>
+			<tr>
+				<th>name</th>
+				<th>action</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr ng-repeat="unit in units">
+				<td>{{unit}}</td>
+				<td><button ng-click="deleteUnit(unit)">apagar</button></td>
+			</tr>
+		</tbody>
+	</table>
+</div>

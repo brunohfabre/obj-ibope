@@ -1,0 +1,21 @@
+<div ng-controller="teacherCtrl">
+	<h3>page teacher</h3>
+	<input type="text" ng-model="teacher.name" placeholder="name">
+	<input type="text" ng-model="teacher.matter" placeholder="matter">
+	<button ng-click="addTeacher(teacher)">adicionar</button>
+	<hr>
+	<table>
+		<thead>
+			<tr>
+				<th>name</th>
+				<th>action</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr ng-repeat="teacher in teachers">
+				<td>{{teacher}}</td>
+				<td><button ng-click="deleteTeacher(teacher)">apagar</button></td>
+			</tr>
+		</tbody>
+	</table>
+</div>
