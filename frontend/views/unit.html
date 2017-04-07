@@ -28,7 +28,7 @@
 				<tbody>
 					<tr ng-repeat="unit in units">
 						<td>{{unit}}</td>
-						<td><button ng-click="deleteUnit(unit)" class="btn btn-danger">apagar</button> <a ui-sref="room({unitId: unit._id})" class="btn btn-primary">adicionar sala</a></td>
+						<td><button ng-click="deleteUnit(unit)" class="btn btn-danger">apagar</button> <a ui-sref="room({unit: unit.name})" class="btn btn-primary">adicionar sala</a></td>
 					</tr>
 				</tbody>
 			</table>

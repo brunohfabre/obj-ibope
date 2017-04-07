@@ -1,18 +1,21 @@
 angular.module('app').controller('roomCtrl', function ($scope, $http, $stateParams) {
+
     var loadRoom = function () {
         $http.get('http://localhost:3003/api/rooms/').then(function (response) {
             $scope.rooms = response.data
         })
     }
 
-    var loadUnit = function () {
-        $http.get('http://localhost:3003/api/units/' + $stateParams.unitId).then(function (response) {
-            $scope.unit = response.data
-        })
-    }
+    $scope.unit = $stateParams.unit
 
-    $scope.addRoom = function (room) {
-        $http.post('http://localhost:3003/api/rooms/', room).then(function () {
+    // var loadUnit = function () {
+    //     $http.get('http://localhost:3003/api/units/' + $stateParams.unitId).then(function (response) {
+    //         $scope.unit = response.data
+    //     })
+    // }
+
+    $scope.addRoom = function (room, unit) {
+        $http.put('http://localhost:3003/api/rooms/', room).then(function () {
             delete $scope.room
             loadRoom()
         })
@@ -25,5 +28,5 @@ angular.module('app').controller('roomCtrl', function ($scope, $http, $statePara
     }
 
     loadRoom()
-    loadUnit()
+    //loadUnit()
 })
