@@ -1,0 +1,20 @@
+<div ng-controller="addRoomCtrl">
+	<h3>Unidade: {{unit.name}}</h3>
+	<input type="text" ng-model="room.name" placeholder="nome sala">
+	<button ng-click="addRoom(room)">adicionar</button>
+	<hr>
+	<table>
+		<thead>
+			<tr>
+				<th>name</th>
+				<th>action</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr ng-repeat="room in rooms">
+				<td>{{room}}</td>
+				<td><button ng-click="deleteUnit(unit)">apagar</button></td>
+			</tr>
+		</tbody>
+	</table>
+</div>

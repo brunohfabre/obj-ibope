@@ -1,25 +1,25 @@
-angular.module('app').controller('roomCtrl', function ($scope, $http) {
+angular.module('app').controller('roomCtrl', function ($scope, $http, $stateParams) {
     var loadRoom = function () {
-        $http.get('http://104.131.115.44:3003/api/rooms/').then(function (response) {
+        $http.get('http://localhost:3003/api/rooms/').then(function (response) {
             $scope.rooms = response.data
         })
     }
 
     var loadUnit = function () {
-        $http.get('http://104.131.115.44:3003/api/units/').then(function (response) {
-            $scope.units = response.data
+        $http.get('http://localhost:3003/api/units/' + $stateParams.unitId).then(function (response) {
+            $scope.unit = response.data
         })
     }
 
     $scope.addRoom = function (room) {
-        $http.post('http://104.131.115.44:3003/api/rooms/', room).then(function () {
+        $http.post('http://localhost:3003/api/rooms/', room).then(function () {
             delete $scope.room
             loadRoom()
         })
     }
 
-    $scope.deleteTeacher = function (room) {
-        $http.delete('http://104.131.115.44:3003/api/rooms/' + room._id).then(function () {
+    $scope.deleteRoom = function (room) {
+        $http.delete('http://localhost:3003/api/rooms/' + room._id).then(function () {
             loadRoom()
         })
     }

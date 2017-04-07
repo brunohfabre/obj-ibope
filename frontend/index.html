@@ -4,6 +4,8 @@
 	<meta charset="UTF-8">
 	<title>teste index obj-ibope</title>
 
+	<link rel="stylesheet" href="lib/bootstrap/css/bootstrap.min.css">
+
 	<script src="lib/angular/angular.min.js"></script>
 	<script src="lib/angular/angular-ui-router.min.js"></script>
 	<script src="js/app.js"></script>
@@ -12,15 +14,33 @@
 	<script src="js/controllers/unitCtrl.js"></script>
 	<script src="js/controllers/teacherCtrl.js"></script>
 	<script src="js/controllers/roomCtrl.js"></script>
+	<script src="js/controllers/teacherRoomCtrl.js"></script>
+	<script src="js/controllers/addRoomCtrl.js"></script>
 </head>
 <body>
-	<ul>
-		<li><a ui-sref="home">home</a></li>
-		<li><a ui-sref="unit">unit</a></li>
-		<li><a ui-sref="teacher">teacher</a></li>
-		<li><a ui-sref="room">room</a></li>
-		<li><a ui-sref="teacherroom">teacherroom</a></li>
-	</ul>
+	<nav class="navbar navbar-default">
+	  	<div class="container">
+	    	<!-- Brand and toggle get grouped for better mobile display -->
+		    <div class="navbar-header">
+		      	<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+			        <span class="sr-only">Toggle navigation</span>
+			        <span class="icon-bar"></span>
+			        <span class="icon-bar"></span>
+			        <span class="icon-bar"></span>
+		      	</button>
+		      <a class="navbar-brand" href="#">Obj Ibope</a>
+		    </div>
+
+		    <!-- Collect the nav links, forms, and other content for toggling -->
+		    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+		      	<ul class="nav navbar-nav navbar-right">
+			        <li><a ui-sref="home">inicio</a></li>
+					<li><a ui-sref="unit">unidade</a></li>
+					<li><a ui-sref="teacherroom">teacherroom</a></li>
+		      	</ul>
+		    </div><!-- /.navbar-collapse -->
+	  	</div><!-- /.container-fluid -->
+	</nav>
 
 	<ui-view></ui-view>
 </body>

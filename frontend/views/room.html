@@ -1,24 +1,39 @@
-<div ng-controller="roomCtrl">
-    <h3>page room</h3>
-    <input type="text" ng-model="room.name" placeholder="name">
-    <select class="form-control" ng-model="room.unit" ng-options="unit.name for unit in units">
-        <option value="">Selecione uma unidade</option>
-    </select>
-    <button ng-click="addRoom(room)">adicionar</button>
-    <hr>
-    <table>
-        <thead>
-            <tr>
-                <th>name</th>
-                <th>action</th>
-            </tr>
-        </thead>
-        <tbody>
-            <tr ng-repeat="room in rooms">
-                <td>{{room}}</td>
-                <td><button ng-click="deleteRoom(room)">apagar</button></td>
-            </tr>
-        </tbody>
-    </table>
-    {{room}}
+<div class="container" ng-controller="roomCtrl">
+    <div class="row">
+        <div class="col-md-12">
+            <h3>page room</h3>
+            <hr>
+        </div>
+    </div>
+    {{unit}}
+    <div class="row">
+        <div class="col-md-12">
+            <form class="form-inline">
+                <div class="form-group">
+                    <input type="text" class="form-control" ng-model="room.name" placeholder="name">
+                </div>
+                <button class="btn btn-primary" ng-click="addRoom(room)">adicionar</button>
+            </form>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-12">
+            <hr>
+            <table class="table table-striped">
+                <thead>
+                    <tr>
+                        <th>name</th>
+                        <th>action</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr ng-repeat="room in rooms">
+                        <td>{{room}}</td>
+                        <td><button ng-click="deleteUnit(unit)" class="btn btn-danger">apagar</button> <a ui-sref="room({unitId: unit._id})" class="btn btn-primary">adicionar sala</a></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
 </div>
+

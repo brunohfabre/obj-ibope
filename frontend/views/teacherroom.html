@@ -1,1 +1,26 @@
-<h3>page teacherroom</h3>
+<div ng-controller="teacherRoomCtrl">
+    <h3>page teacherrooms</h3>
+    <select class="form-control" ng-model="teacherroom.room" ng-options="room.name for room in rooms">
+        <option value="">Selecione uma sala</option>
+    </select>
+    <select class="form-control" ng-model="teacherroom.teacher" ng-options="teacher.name for teacher in teachers">
+        <option value="">Selecione um professor</option>
+    </select>
+    <button ng-click="addTeacherRoom(teacherroom)">adicionar</button>
+    <hr>
+    <table>
+        <thead>
+            <tr>
+                <th>name</th>
+                <th>action</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr ng-repeat="teacherroom in teacherrooms">
+                <td>{{teacherroom}}</td>
+                <td><button ng-click="deleteTeacherRoom(teacherroom)">apagar</button></td>
+            </tr>
+        </tbody>
+    </table>
+    {{teacherroom}}
+</div>

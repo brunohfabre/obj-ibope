@@ -1,20 +1,37 @@
-<div ng-controller="unitCtrl">
-	<h3>page unit</h3>
-	<input type="text" ng-model="unit.name" placeholder="name">
-	<button ng-click="addUnit(unit)">adicionar</button>
-	<hr>
-	<table>
-		<thead>
-			<tr>
-				<th>name</th>
-				<th>action</th>
-			</tr>
-		</thead>
-		<tbody>
-			<tr ng-repeat="unit in units">
-				<td>{{unit}}</td>
-				<td><button ng-click="deleteUnit(unit)">apagar</button></td>
-			</tr>
-		</tbody>
-	</table>
+<div class="container" ng-controler="unitCtrl">
+	<div class="row">
+		<div class="col-md-12">
+			<h3>page unit</h3>
+			<hr>
+		</div>
+	</div>
+	<div class="row">
+		<div class="col-md-12">
+			<form class="form-inline">
+				<div class="form-group">
+				    <input type="text" class="form-control" ng-model="unit.name" placeholder="name">
+				</div>
+				<button class="btn btn-primary" ng-click="addUnit(unit)">adicionar</button>
+			</form>
+		</div>
+	</div>
+	<div class="row">
+		<div class="col-md-12">
+			<hr>
+			<table class="table table-striped">
+				<thead>
+					<tr>
+						<th>name</th>
+						<th>action</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr ng-repeat="unit in units">
+						<td>{{unit}}</td>
+						<td><button ng-click="deleteUnit(unit)" class="btn btn-danger">apagar</button> <a ui-sref="room({unitId: unit._id})" class="btn btn-primary">adicionar sala</a></td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+	</div>
 </div>
