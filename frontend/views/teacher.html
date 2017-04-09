@@ -1,21 +1,44 @@
-<div ng-controller="teacherCtrl">
-	<h3>page teacher</h3>
-	<input type="text" ng-model="teacher.name" placeholder="name">
-	<input type="text" ng-model="teacher.matter" placeholder="matter">
-	<button ng-click="addTeacher(teacher)">adicionar</button>
-	<hr>
-	<table>
-		<thead>
-			<tr>
-				<th>name</th>
-				<th>action</th>
-			</tr>
-		</thead>
-		<tbody>
-			<tr ng-repeat="teacher in teachers">
-				<td>{{teacher}}</td>
-				<td><button ng-click="deleteTeacher(teacher)">apagar</button></td>
-			</tr>
-		</tbody>
-	</table>
+<div class="container" ng-controller="teacherCtrl">
+    <div class="row">
+        <div class="col-md-12">
+            <h3>page teacher</h3>
+            <hr>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-12">
+            <form class="form-inline">
+                <div ng-repeat="teacher in unit.rooms[roomIndex].teachers">
+                    <div class="form-group">
+                        <input type="text" class="form-control" ng-model="teacher.name" placeholder="name">
+                        <input type="text" class="form-control" ng-model="teacher.matter" placeholder="matter">
+                        <!-- <input type="hidden" class="form-control" ng-model="room.unit_id" ng-init="room.unit_id = unit" placeholder="name">-->
+                    </div>
+                </div>
+                
+                <button class="btn btn-primary" ng-click="addTeacher(teacher)">adicionar</button>
+            </form>
+            {{unit}}
+            <hr>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-12">
+            <hr>
+            <table class="table table-striped">
+                <thead>
+                    <tr>
+                        <th>name</th>
+                        <th>action</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr ng-repeat="unit in units">
+                        {{unit.rooms[roomIndex]}}
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
 </div>
+

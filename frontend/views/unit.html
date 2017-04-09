@@ -7,14 +7,30 @@
 	</div>
 	<div class="row">
 		<div class="col-md-12">
-			<form class="form-inline">
+			<form class="form-horizontal">
 				<div class="form-group">
-				    <input type="text" class="form-control" ng-model="unit.name" placeholder="name">
+					<div class="col-sm-6">
+						<input type="text" class="form-control" ng-model="unit.name" placeholder="name">
+					</div>
 				</div>
-				<button class="btn btn-primary" ng-click="addUnit(unit)">adicionar</button>
+				<div ng-repeat="room in unit.rooms">
+					<div class="form-group">
+						<div class="col-sm-6">
+							<input type="text" class="form-control" ng-model="room.name" placeholder="room">
+						</div>
+						<button class="btn btn-success" ng-click="addRoom($index)">+</button>
+						<button class="btn btn-danger" ng-click="deleteRoom($index)">-</button>
+					</div>
+				</div>
+				<div class="form-group">
+					<div class="col-sm-6" align="right">
+						<button class="btn btn-primary" ng-click="addUnit(unit)">adicionar</button>
+					</div>
+				</div>
 			</form>
 		</div>
 	</div>
+	{{unit}}
 	<div class="row">
 		<div class="col-md-12">
 			<hr>
@@ -27,8 +43,8 @@
 				</thead>
 				<tbody>
 					<tr ng-repeat="unit in units">
-						<td>{{unit}}</td>
-						<td><button ng-click="deleteUnit(unit)" class="btn btn-danger">apagar</button> <a ui-sref="room({unit: unit.name})" class="btn btn-primary">adicionar sala</a></td>
+						<td><a ui-sref="room({unitId: unit._id})">{{unit}}</a></td>
+						<td><button ng-click="deleteUnit(unit)" class="btn btn-danger">apagar</button> <a ui-sref="room({unitId: unit._id})" class="btn btn-primary">adicionar salas</a></td>
 					</tr>
 				</tbody>
 			</table>

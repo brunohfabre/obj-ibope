@@ -5,19 +5,7 @@
             <hr>
         </div>
     </div>
-    {{unit}}
-    <div class="row">
-        <div class="col-md-12">
-            <form class="form-inline">
-                <div class="form-group">
-                    <input type="text" class="form-control" ng-model="room.unit" ng-init="" placeholder="name">
-                    <input type="text" class="form-control" ng-model="room.name" placeholder="name">
-                </div>
-                <button class="btn btn-primary" ng-click="addRoom(room)">adicionar</button>
-            </form>
-        </div>
-    </div>
-    {{room}}
+        {{unit}}
     <div class="row">
         <div class="col-md-12">
             <hr>
@@ -29,12 +17,21 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <tr ng-repeat="room in rooms">
-                        <td>{{room}}</td>
-                        <td><button ng-click="deleteUnit(unit)" class="btn btn-danger">apagar</button> <a ui-sref="room({unitId: unit._id})" class="btn btn-primary">adicionar sala</a></td>
+                    <tr ng-repeat="room in unit.rooms">
+                        <td>
+                            <div class="form-group">
+                                <input type="text" class="form-control" ng-model="room.name" placeholder="name">
+                            </div>
+                        </td>
+                        <td>
+                            <button class="btn btn-success" ng-click="addRoom($index)">+</button>
+                            <button class="btn btn-danger" ng-click="deleteRoom($index)">-</button>
+                            <a class="btn btn-primary" ui-sref="teacher({unitId: unit._id, roomIndex: $index})">adicionar professores</a>
+                        </td>
                     </tr>
                 </tbody>
             </table>
+            <button class="btn btn-primary" ng-click="updateUnit(unit)">Atualizar</button>
         </div>
     </div>
 </div>

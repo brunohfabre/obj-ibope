@@ -1,12 +1,16 @@
-angular.module('app').controller('teacherCtrl', function ($scope, $http) {
-	var loadTeacher = function () {
-		$http.get('http://localhost:3003/api/teachers/').then(function (response) {
-			$scope.teachers = response.data
+angular.module('app').controller('teacherCtrl', function ($scope, $http, $stateParams) {
+
+	var loadUnit = function () {
+		$http.get('http://localhost:3003/api/units/' + $stateParams.unitId).then(function (response) {
+			$scope.unit = {rooms: [{}]}
+			$scope.unit = response.data
+			
 		})
+		$scope.roomIndex = $stateParams.roomIndex
 	}
 
 	$scope.addTeacher = function (teacher) {
-		$http.post('http://localhost:3003/api/teachers/', teacher).then(function () {
+		$http.post('http://localhost:3003/api/teachers/', angular.extend(teacher, {room_id: $stateParams.room})).then(function () {
 			delete $scope.teacher
 			loadTeacher()
 		})
@@ -18,5 +22,5 @@ angular.module('app').controller('teacherCtrl', function ($scope, $http) {
 		})
 	}
 
-	loadTeacher()
+	loadUnit()
 })
