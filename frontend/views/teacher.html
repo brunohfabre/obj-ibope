@@ -1,4 +1,4 @@
-<div class="container" ng-controller="teacherCtrl">
+<div class="container" ng-controller="teacherRoomCtrl">
     <div class="row">
         <div class="col-md-12">
             <h3>page teacher</h3>
@@ -7,18 +7,29 @@
     </div>
     <div class="row">
         <div class="col-md-12">
-            <form class="form-inline">
-                <div ng-repeat="teacher in unit.rooms[roomIndex].teachers">
+            <form class="form-horizontal">
+                <div ng-repeat="teacher in teacherroom.teachers">
                     <div class="form-group">
-                        <input type="text" class="form-control" ng-model="teacher.name" placeholder="name">
-                        <input type="text" class="form-control" ng-model="teacher.matter" placeholder="matter">
-                        <!-- <input type="hidden" class="form-control" ng-model="room.unit_id" ng-init="room.unit_id = unit" placeholder="name">-->
+                        <div class="col-sm-3">
+                            <input type="text" class="form-control" ng-model="teacher.name" placeholder="name">
+                        </div>
+                        <div class="col-sm-3">
+                            <input type="text" class="form-control" ng-model="teacher.matter" placeholder="matter">
+                        </div>
+                        <button class="btn btn-success" ng-click="addTeacher($index)">+</button>
+                        <button class="btn btn-danger" ng-click="deleteTeacher($index)">-</button>
+                    </div>
+                    
+                </div>
+                <div class="form-group">
+                    <div class="col-sm-6" align="right">
+                        <button class="btn btn-primary" ng-click="addTeacherRoom(teacherroom)">adicionar</button>
                     </div>
                 </div>
-                
-                <button class="btn btn-primary" ng-click="addTeacher(teacher)">adicionar</button>
             </form>
             {{unit}}
+            <hr>
+            {{teacherroom}}
             <hr>
         </div>
     </div>

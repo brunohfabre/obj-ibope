@@ -1,19 +1,9 @@
 angular.module('app').controller('roomCtrl', function ($scope, $http, $stateParams) {
 
-    $scope.teste = $stateParams.unitId
-
-    var loadRoom = function () {
-        $http.get('http://localhost:3003/api/rooms/').then(function (response) {
-            $scope.rooms = response.data
-        })
-    }
-
     var loadUnit = function () {
         $http.get('http://localhost:3003/api/units/' + $stateParams.unitId).then(function (response) {
             $scope.unit = response.data
         })
-
-        
     }
 
     $scope.addRoom = function (index) {
@@ -31,7 +21,6 @@ angular.module('app').controller('roomCtrl', function ($scope, $http, $statePara
             loadUnit()
         })
     }
-
-    loadRoom()
+    
     loadUnit()
 })
