@@ -20,7 +20,7 @@ angular.module('app').config(function ($stateProvider, $urlRouterProvider, $loca
 		})
 
 		.state('teacher', {
-			url: '/teacher/{unitId}/{roomId}',
+			url: '/teacher/{unitId}/{roomIndex}',
 			templateUrl: 'views/teacher.html',
 			controller: 'teacherCtrl'
 		})
